@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Feb 17 02:26:20 2020
+Created on Mon Feb 12 02:26:20 2020
 
 @author: Sneha
 """
@@ -45,13 +45,13 @@ def generalization(method, train_num):
                 mean_sq, e_array = compute_Mean_Square_continuous(weight,e_array,gen,train_num)
         # Trying Different Values of Generalization Factor
     
-        if gen == 5:       
+        if gen == 3:       
             w_weight_save = weight
     
-        elif gen == 9:       
+        elif gen == 5:       
             w_weight_save2 = weight
     
-        elif gen == 13:        
+        elif gen == 9:        
             w_weight_save3 = weight
     
         time_gen_array = np.append(time_gen_array, gen)
@@ -88,7 +88,7 @@ def compute_Mean_Square_continuous(weight, e_array,gen, train_num):
     for j in range(0, 70):
             q_value = j/2
 
-            for k in range(gen):            # Splitting the End Cells into Proportions and Updating the Error Equation
+            for k in range(gen):           
                 if (k == 0):
                     w_value = (w_value + weight[np.array(int(k) + int(q_value))] * 0.80)
                 elif (k == gen-1):
@@ -100,7 +100,7 @@ def compute_Mean_Square_continuous(weight, e_array,gen, train_num):
             e_array = np.append(e_array, e_value)
             corrected_val = e_value/gen     # Error Correction
 
-            for k in range(gen):            # Splitting the End Cells into Proportions and Updating the Error Equation
+            for k in range(gen):           
                 if(k == 0):
                     weight[np.array(int(k) + int(q_value))] = (weight[np.array(int(k) + int(q_value))]) + (corrected_val * 0.80)
                 elif(k == gen-1):
@@ -128,7 +128,7 @@ y = np.arange(0)
 w_value = 0.0
 w_zero = np.arange(0.0)
 
-start = time.time()  # To Measure Time for Training/Testing
+start = time.time()  
 
 # Using the Sine Curve for Training
 for i in range(0, 100):
@@ -150,13 +150,13 @@ w_new_array_d = w_new_array2_d = w_new_array3_d = w_new_array_c = w_new_array2_c
 # Testing Phase
 for j in range(0, 30):
     q_value = j / 2
-    w_new_array_d = update_weights(w_new_array_d,q_value,w_weight_save_d[1::2], 5)
-    w_new_array2_d = update_weights(w_new_array2_d,q_value,w_weight_save2_d[1::2], 9)
-    w_new_array3_d = update_weights(w_new_array3_d,q_value,w_weight_save3_d[1::2], 13)
+    w_new_array_d = update_weights(w_new_array_d,q_value,w_weight_save_d[1::2], 3)
+    w_new_array2_d = update_weights(w_new_array2_d,q_value,w_weight_save2_d[1::2], 5)
+    w_new_array3_d = update_weights(w_new_array3_d,q_value,w_weight_save3_d[1::2], 9)
     
-    w_new_array_c = update_weights(w_new_array_c,q_value,w_weight_save_c[1::2], 5)
-    w_new_array2_c = update_weights(w_new_array2_c,q_value,w_weight_save2_c[1::2], 9)
-    w_new_array3_c = update_weights(w_new_array3_c,q_value,w_weight_save3_c[1::2], 13)
+    w_new_array_c = update_weights(w_new_array_c,q_value,w_weight_save_c[1::2], 3)
+    w_new_array2_c = update_weights(w_new_array2_c,q_value,w_weight_save2_c[1::2], 5)
+    w_new_array3_c = update_weights(w_new_array3_c,q_value,w_weight_save3_c[1::2], 9)
 
 
 
@@ -167,44 +167,48 @@ x_tested = div_points * x
 
 # Gen 1
 plt.figure(1)
-plt.plot(new_test_num, w_new_array_d, '-y', label="Testing Curve (gen = 5)")
-plt.plot(new_test_num, w_new_array2_d, '-b', label="Testing Curve (gen = 9)")
-plt.plot(new_test_num, w_new_array3_d, '-r', label="Testing Curve (gen = 13)")
-plt.plot(x_tested, y, '-k', label="Input Curve", linewidth=2)
-plt.title("Different Generalization Factors - Discrete")
+plt.plot(new_test_num, w_new_array_d, '-y', label="Curve when Factor = 3")
+plt.plot(new_test_num, w_new_array2_d, '-b', label="Curve when Factor = 5")
+plt.plot(new_test_num, w_new_array3_d, '-r', label="Curve when Factor = 9")
+plt.plot(x_tested, y, '-k', label="Input", linewidth=2)
+plt.title("Comparison of Generalization Values - Discrete")
 plt.xlabel('Radians')
 plt.ylabel('cos(x)')
 plt.legend(loc='upper right')
 
 # Gen 1
 plt.figure(2)
-plt.plot(new_test_num, w_new_array_c, '-y', label="Testing Curve (gen = 5)")
-plt.plot(new_test_num, w_new_array2_c, '-b', label="Testing Curve (gen = 9)")
-plt.plot(new_test_num, w_new_array3_c, '-r', label="Testing Curve (gen = 13)")
-plt.plot(x_tested, y, '-k', label="Input Curve", linewidth=2)
-plt.title("Different Generalization Factors - Continuous")
+plt.plot(new_test_num, w_new_array_c, '-y', label="Curve when Factor = 3")
+plt.plot(new_test_num, w_new_array2_c, '-b', label="Curve when Factor = 5")
+plt.plot(new_test_num, w_new_array3_c, '-r', label="Curve when Factor = 9")
+plt.plot(x_tested, y, '-k', label="Input", linewidth=2)
+plt.title("Comparison of Generalization Values - Continuous")
 plt.xlabel('Radians')
 plt.ylabel('cos(x)')
 plt.legend(loc='upper right')
 
 plt.figure(3)
 plt.plot(time_gen_array_d, mean_sq_array_d, '-k')
-plt.xlabel("Generalization - Discrete")
+plt.title("Generalization vs Error - Discrete")
+plt.xlabel("Generalization")
 plt.ylabel("Error")
 
 plt.figure(4)
 plt.plot(time_gen_array_c, mean_sq_array_c, '-k')
+plt.title("Generalization vs Error - Continuous")
 plt.xlabel("Generalization - Continuous")
 plt.ylabel("Error")
 
 plt.figure(5)
 plt.plot(time_gen_array_d, time_array_d, '-g')
+plt.title("Generalization vs Time - Discrete")
 plt.xlabel("Generalization")
 plt.ylabel("Time")
 plt.show()
 
 plt.figure(6)
 plt.plot(time_gen_array_c, time_array_c, '-g')
+plt.title("Generalization vs Time - Continuous")
 plt.xlabel("Generalization")
 plt.ylabel("Time")
 plt.show()
