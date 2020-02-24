@@ -1,0 +1,6 @@
+devel_space: /home/sneha/mybot/mybot_ws/devel
+install: false
+install_space: /home/sneha/mybot/mybot_ws/install
+profile: default
+source_space: /home/sneha/mybot/mybot_ws/src
+workspace: /home/sneha/mybot/mybot_ws

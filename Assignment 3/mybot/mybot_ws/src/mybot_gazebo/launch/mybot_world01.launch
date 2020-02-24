@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>  
+  <arg name="robot" default="machines"/>
+  <arg name="debug" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="pause" default="false"/>
+  <arg name="world" default="world01" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find mybot_gazebo)/worlds/mybot02.world"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg pause)"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <!-- <env name="GAZEBO_MODEL_PATH" value="$(find simulation_gazebo)/models:$(optenv GAZEBO_MODEL_PATH)"/> -->
+  </include>
+<!--  Include launch.xml if needed -->
+
+<arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0.5"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find mybot_description)/urdf/mybot.xacro'"/>
+
+  <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+   args="-urdf -param robot_description -model mybot -x $(arg x) -y $(arg y) -z $(arg z)" />
+</launch>
+

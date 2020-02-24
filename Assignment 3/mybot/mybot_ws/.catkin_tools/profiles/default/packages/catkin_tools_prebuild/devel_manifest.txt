@@ -1,0 +1,13 @@
+/home/sneha/mybot/mybot_ws/build/catkin_tools_prebuild
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/setup.bash /home/sneha/mybot/mybot_ws/devel/./setup.bash
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/local_setup.sh /home/sneha/mybot/mybot_ws/devel/./local_setup.sh
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/_setup_util.py /home/sneha/mybot/mybot_ws/devel/./_setup_util.py
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/local_setup.zsh /home/sneha/mybot/mybot_ws/devel/./local_setup.zsh
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/setup.sh /home/sneha/mybot/mybot_ws/devel/./setup.sh
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/setup.zsh /home/sneha/mybot/mybot_ws/devel/./setup.zsh
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/cmake.lock /home/sneha/mybot/mybot_ws/devel/./cmake.lock
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/local_setup.bash /home/sneha/mybot/mybot_ws/devel/./local_setup.bash
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/env.sh /home/sneha/mybot/mybot_ws/devel/./env.sh
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake /home/sneha/mybot/mybot_ws/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake /home/sneha/mybot/mybot_ws/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake
+/home/sneha/mybot/mybot_ws/devel/.private/catkin_tools_prebuild/lib/pkgconfig/catkin_tools_prebuild.pc /home/sneha/mybot/mybot_ws/devel/lib/pkgconfig/catkin_tools_prebuild.pc
